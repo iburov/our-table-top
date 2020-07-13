@@ -1,0 +1,10 @@
+.ott-users-list {
+  .pages-numbers {
+    .active-page {
+      background-color: red;
+    }
+    & > span:hover {
+      cursor: pointer;
+    }
+  }
+}

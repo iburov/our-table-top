@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 class Navbar extends React.Component {
-  componentDidMount() {}
+  componentDidMount() { }
 
   render() {
     return (
@@ -17,7 +17,7 @@ class Navbar extends React.Component {
           Our Table Top
         </NavLink>
         <div className="collapse navbar-collapse">
-          <ul className="navbar-nav mr-auto">
+          <ul className="navbar-nav">
             <li className="navbar-item">
               <NavLink to="/exercises" className="nav-link">
                 Exercises

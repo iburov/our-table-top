@@ -10,7 +10,7 @@ import EditExercise from "../EditExercise/EditExercise";
 import CreateUser from "../CreateUser/CreateUser";
 
 class App extends React.Component {
-  componentDidMount() {}
+  componentDidMount() { }
 
   render() {
     return (
@@ -18,11 +18,11 @@ class App extends React.Component {
         <div className="ott-app container">
           <Navbar />
           <div className="ott-app__wrapper pt-2">
-            <Route path="/jp" render={() => <JosephusProblem />} />
-            <Route path="/users" render={() => <UsersList />} />
-            <Route path="/create-user" render={() => <CreateUser />} />
-            <Route path="/exercises" render={() => <ExercisesList />} />
-            <Route path="/create-exercise" render={() => <CreateExercise />} />
+            <Route path="/jp" component={JosephusProblem} />
+            <Route path="/users" component={UsersList} />
+            <Route path="/create-user" component={CreateUser} />
+            <Route path="/exercises" component={ExercisesList} />
+            <Route path="/create-exercise" component={CreateExercise} />
             <Route path="/edit-exercise/:id" component={EditExercise} />
           </div>
         </div>
