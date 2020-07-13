@@ -7,7 +7,8 @@ import "./UsersList.scss";
 import { connect } from "react-redux";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-import { setUsers, setPage, setTotalCount } from "../../redux/list-users-reducer"
+import { setUsers, setPage, setTotalCount, setIsLoading } from "../../redux/list-users-reducer"
+import LoadingSpinner from '../common/LoadingSpinner/LoadingSpinner';
 
 const User = (props) => (
   <tr>
@@ -32,6 +33,7 @@ class UsersList extends React.Component {
       .then((res) => {
         this.props.setTotalCount(res.data.totalCount);
         this.props.setUsers(res.data.results);
+        this.props.setIsLoading(false);
       })
       .catch((err) => {
         this.props.setUsers([]);
@@ -69,6 +71,7 @@ class UsersList extends React.Component {
 
     return (
       <div className="ott-users-list">
+        {this.props.isLoading ? <LoadingSpinner /> : null}
         <h3 className="float-left">Users</h3>
         <div className="pages-numbers">
           {pages.map((p, i) => (
@@ -107,7 +110,8 @@ let mapStateToProps = (state) => {
     page: state.listUsers.page,
     pageLimit: state.listUsers.pageLimit,
     totalCount: state.listUsers.totalCount,
+    isLoading: state.listUsers.isLoading
   };
 };
 
-export default connect(mapStateToProps, { setUsers, setPage, setTotalCount })(UsersList);
+export default connect(mapStateToProps, { setUsers, setPage, setTotalCount, setIsLoading })(UsersList);
